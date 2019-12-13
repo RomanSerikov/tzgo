@@ -20,7 +20,7 @@ func NewTezosNode(baseURL string, timeout time.Duration) *TezosNode {
 		baseURL:          baseURL,
 		outOfSyncTimeout: -3 * time.Minute,
 		client: http.Client{
-			Timeout: time.Duration(timeout) * time.Second,
+			Timeout: timeout,
 		},
 	}
 }
