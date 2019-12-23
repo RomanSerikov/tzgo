@@ -92,6 +92,18 @@ func (t *TezosNode) Operations(level int) ([][]Operations, error) {
 	return ret, nil
 }
 
+// ChainID -
+func (t *TezosNode) ChainID() (string, error) {
+	uri := "/chains/main/chain_id"
+
+	var ret string
+	if err := t.get(uri, &ret); err != nil {
+		return ret, err
+	}
+
+	return ret, nil
+}
+
 // GetCurrentCycle - returns current cycle
 func (t *TezosNode) GetCurrentCycle() (int, error) {
 	uri := "/chains/main/blocks/head/header"
