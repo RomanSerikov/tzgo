@@ -16,6 +16,8 @@ type Block struct {
 
 // Header is a header in a block returned by the Tezos RPC API.
 type Header struct {
+	Protocol         string    `json:"protocol"`
+	ChainID          string    `json:"chain_id"`
 	Hash             string    `json:"hash"`
 	Level            int       `json:"level"`
 	Proto            int       `json:"proto"`
@@ -215,6 +217,8 @@ type PendingOperation struct {
 
 // ShortBlock -
 type ShortBlock struct {
+	Protocol   string `json:"protocol"`
+	ChainID    string `json:"chain_id"`
 	Hash       string `json:"hash"`
 	Operations [][]struct {
 		Hash string `json:"hash"`
