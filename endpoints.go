@@ -44,6 +44,18 @@ func (t *TezosNode) ActiveDelegatesWithRolls() ([]string, error) {
 	return ret, nil
 }
 
+// ActiveDelegates -
+func (t *TezosNode) ActiveDelegates() ([]string, error) {
+	uri := "/chains/main/blocks/head/context/delegates?active"
+
+	var ret []string
+	if err := t.get(uri, &ret); err != nil {
+		return ret, err
+	}
+
+	return ret, nil
+}
+
 // StakingBalance -
 func (t *TezosNode) StakingBalance(address string) (string, error) {
 	uri := fmt.Sprintf("/chains/main/blocks/head/context/delegates/%s/staking_balance", address)
