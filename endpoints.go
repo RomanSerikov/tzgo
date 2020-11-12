@@ -46,7 +46,7 @@ func (t *TezosNode) ActiveDelegatesWithRolls() ([]string, error) {
 
 // ActiveDelegates -
 func (t *TezosNode) ActiveDelegates() ([]string, error) {
-	uri := "/chains/main/blocks/head/context/delegates?active"
+	uri := "/chains/main/blocks/head/context/delegates?active=true"
 
 	var ret []string
 	if err := t.get(uri, &ret); err != nil {
